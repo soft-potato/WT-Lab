@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bill</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+      #myTable {
+        display: none;
+      }
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 20px;
+        margin: 0 auto;
+        max-width: 1200px;
+      }
+      
+      .product {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+        padding: 10px;
+      }
+      
+      .product img {
+        max-width: 100%;
+      }
+      
+      .product h3 {
+        font-size: 1.2em;
+        margin: 0;
+        padding: 10px 0;
+      }
+      
+      .product p {
+        font-size: 1em;
+        margin: 0;
+        padding: 5px 0;
+      }
+      .bill{
+        color: aliceblue;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="product-grid">
+      <div class="product">
+        <img src="mobile.jpg" alt="Product 1">
+        <h3>Xaiomi 15S</h3>
+        <p>INR 12599</p>
+        <div class="product">
+            <div >
+                <button id="increment1">+</button>
+            </div>
+            <div>
+                <p id="count1">0</p>
+            </div>
+            <div>
+                <button id="decrement1">-</button>
+            </div>
+        </div>
+      </div>
+      <div class="product">
+        <img src="bluetooth.jpg" alt="Product 2">
+        <h3>Boat wireless</h3>
+        <p>INR 2400</p>
+        <div class="product">
+            <div >
+                <button id="increment2">+</button>
+            </div>
+            <div>
+                <p id="count2">0</p>
+            </div>
+            <div>
+                <button id="decrement2">-</button>
+            </div>
+        </div>    
+      </div>
+      <div class="product">
+        <img src="mouse.jpg" alt="Product 3">
+        <h3>Gaming Mouse</h3>
+        <p>INR 3599</p>
+        <div class="product">
+            <div >
+                <button id="increment3">+</button>
+            </div>
+            <div>
+                <p id="count3">0</p>
+            </div>
+            <div>
+                <button id="decrement3">-</button>
+            </div>
+        </div>
+      </div>
+      <div class="product">
+        <img src="keyboard.jpg" alt="Product 4">
+        <h3>RGB Keyboard</h3>
+        <p>INR 4179</p>
+        <div class="product">
+            <div >
+                <button id="increment4">+</button>
+            </div>
+            <div>
+                <p id="count4">0</p>
+            </div>
+            <div>
+                <button id="decrement4">-</button>
+            </div>
+        </div>
+      </div>
+      <div class="product">
+        <img src="earphones.jpg" alt="Product 2">
+        <h3>SBL Earphones</h3>
+        <p>INR 1200</p>
+        <div class="product">
+            <div >
+                <button id="increment5">+</button>
+            </div>
+            <div>
+                <p id="count5">0</p>
+            </div>
+            <div>
+                <button id="decrement5">-</button>
+            </div>
+        </div>
+      </div>
+      <div class="product">
+        <img src="pendrive.jpg" alt="Product 3">
+        <h3>Sand disk</h3>
+        <p>INR 2400</p>
+        <div class="product">
+            <div >
+                <button id="increment6">+</button>
+            </div>
+            <div>
+                <p id="count6">0</p>
+            </div>
+            <div>
+                <button id="decrement6">-</button>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="bill">
+        <button onclick="showTable()">Print Bill</button>
+    </div>
+    <table id="myTable">
+        <tr>
+            <th>
+                1.Mobile
+            </th>
+            <th>
+                :
+            </th>
+            <th>
+                <p id="price1"></p>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                2.Bluetooth
+            </th>
+            <th>
+                :
+            </th>
+            <th>
+                <p id="price2"></p>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                3.Mouse
+            </th>
+            <th>
+                :
+            </th>
+            <th>
+                <p id="price3"></p>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                4.Keyboard
+            </th>
+            <th>
+                :
+            </th>
+            <th>
+                <p id="price4"></p>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                5.Ear phones
+            </th>
+            <th>
+                :
+            </th>
+            <th>
+                <p id="price5"></p>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                6.Pen drive
+            </th>
+            <th>
+                :
+            </th>
+            <th>
+                <p id="price6"></p>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Total in rupees
+            </th>
+            <th>
+                :
+            </th>
+            <th>
+                <p id="price7"></p>
+            </th>
+        </tr>
+    </table>
+    <script>
+		let count1 = 0;
+		const countDisplay1 = document.getElementById("count1");
+		const incrementButton1 = document.getElementById("increment1");
+		const decrementButton1 = document.getElementById("decrement1");
+		function increment1() {
+			count1++;
+			countDisplay1.innerText = count1;
+		}
+		function decrement1() {
+            if(count1>0){
+			count1--;
+			countDisplay1.innerText = count1;}
+		}
+		incrementButton1.addEventListener("click", increment1);
+		decrementButton1.addEventListener("click", decrement1);
+        let count2 = 0;
+		const countDisplay2 = document.getElementById("count2");
+		const incrementButton2 = document.getElementById("increment2");
+		const decrementButton2 = document.getElementById("decrement2");
+		function increment2() {
+			count2++;
+			countDisplay2.innerText = count2;
+		}
+		function decrement2() {
+            if(count2>0){
+			count2--;
+			countDisplay2.innerText = count2;}
+		}
+		incrementButton2.addEventListener("click", increment2);
+		decrementButton2.addEventListener("click", decrement2);
+        let count3 = 0;
+		const countDisplay3 = document.getElementById("count3");
+		const incrementButton3 = document.getElementById("increment3");
+		const decrementButton3 = document.getElementById("decrement3");
+		function increment3() {
+			count3++;
+			countDisplay3.innerText = count3;
+		}
+		function decrement3() {
+            if(count3>0){
+			count3--;
+			countDisplay3.innerText = count3;}
+		}
+		incrementButton3.addEventListener("click", increment3);
+		decrementButton3.addEventListener("click", decrement3);
+        let count4 = 0;
+		const countDisplay4 = document.getElementById("count4");
+		const incrementButton4 = document.getElementById("increment4");
+		const decrementButton4 = document.getElementById("decrement4");
+		function increment4() {
+			count4++;
+			countDisplay4.innerText = count4;
+		}
+		function decrement4() {
+            if(count4>0){
+			count4--;
+			countDisplay4.innerText = count4;}
+		}
+		incrementButton4.addEventListener("click", increment4);
+		decrementButton4.addEventListener("click", decrement4);
+        let count5 = 0;
+		const countDisplay5 = document.getElementById("count5");
+		const incrementButton5 = document.getElementById("increment5");
+		const decrementButton5 = document.getElementById("decrement5");
+		function increment5() {
+			count5++;
+			countDisplay5.innerText = count5;
+		}
+		function decrement5() {
+            if(count5>0){
+			count5--;
+			countDisplay5.innerText = count5;}
+		}
+		incrementButton5.addEventListener("click", increment5);
+		decrementButton5.addEventListener("click", decrement5);
+        let count6 = 0;
+		const countDisplay6 = document.getElementById("count6");
+		const incrementButton6 = document.getElementById("increment6");
+		const decrementButton6 = document.getElementById("decrement6");
+		function increment6() {
+			count6++;
+			countDisplay6.innerText = count6;
+		}
+		function decrement6() {
+            if(count6>0){
+			count6--;
+			countDisplay6.innerText = count6;}
+		}
+		incrementButton6.addEventListener("click", increment6);
+		decrementButton6.addEventListener("click", decrement6);
+        function showTable() {
+            document.getElementById("price1").innerText=12599*count1;
+            document.getElementById("price2").innerText=2400*count2;
+            document.getElementById("price3").innerText=3599*count3;
+            document.getElementById("price4").innerText=4179*count4;
+            document.getElementById("price5").innerText=1200*count5;
+            document.getElementById("price6").innerText=2400*count6;
+            document.getElementById("price7").innerText=2400*count6+125999*count1+2400*count2+3599*count3+4179*count4+1200*count5;
+        var table = document.getElementById("myTable");
+        if (table.style.display === "none") {
+          table.style.display = "table";
+        } else {
+          table.style.display = "none";
+        }
+      }
+	</script>
+  </body>
+</html>

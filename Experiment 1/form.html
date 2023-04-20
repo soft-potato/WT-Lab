@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <style>
+            body {background-color: #008080;;}
+            table {margin: auto;width: 60%;border: 3px solid #333;padding: 10px;border-radius: 30px;}
+            h1   {color: #333;}
+            </style>
+    </head>
+    <body>
+        <b><h2 style="color:#333;text-align:center;">Application forum</h2></b>
+        <form action="new.php" method="POST">
+            <table border="0" cellspacing="5" cellpadding="5">
+                <tr>
+                    <th>
+                        <label for="name">Name</label>
+                    </th>
+                    <th>
+                        <input type="text" name="name" placeholder="Enter name" size="20">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="Email">Email</label>
+                    </th>
+                    <th>
+                        <input type="email" name="email" placeholder="Enter your email" size="20">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="DOB">DOB</label>
+                    </th>
+                    <th>
+                        <input type="date" name="date">
+                    </th>
+                </tr>
+                <tr >
+                    <th rowspan="2">
+                        <label for="gender">Gender</label>
+                    </th>
+                    <th>
+                        <label for="M">M</label>
+                        <input type="radio" name="gender" value="male">
+                        
+                    </th>
+                </tr>
+                <tr >
+                    <th>
+                        <label for="F">F</label>
+                        <input type="radio" name="gender" value="female">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                     <label for="Education">Education</label>
+                    </th> 
+                     <th>
+                         <select name="education">
+                             <option value="10th">10th</option>
+                             <option value="Inter">Inter</option>
+                             <option value="Diploma">Diploma</option>
+                             <option value="Graduate">Graduate</option>
+                         </select>
+                     </th>
+                 </tr>
+                <tr>
+                    <th rowspan="2">
+                        <label for="Known Languages">Programming Languages</label>
+                    </th>
+                    <th>
+                        <p><input type="checkbox" name="language[]" value="C" /> C</p>
+           
+                    </th>
+                    <th>
+                        <p><input type="checkbox" name="language[]" value="C++" /> C++</p>
+           
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <p><input type="checkbox" name="language[]" value="C#" /> C#</p>
+                    </th>
+                    <th>
+                        <p><input type="checkbox" name="language[]" value="Java" /> Java</p>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="Curr">Current working</label>
+                    </th>
+                    <th>
+                        <textarea cols="30" rows="10" name="work"></textarea>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="submit" name="submit" value="sumbit">
+                    </th>
+                    <th>
+                        <input type="reset" name="reset" value="reset">
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
